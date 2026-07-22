@@ -2740,3 +2740,840 @@ p {
   line-height: 1.6;
   color: #666;
 }
+
+/* ---------------------------------------------------------
+   AI Pedagogy Project comparison activity
+   --------------------------------------------------------- */
+
+.external-activity {
+	margin-top: 3em;
+}
+
+.activity-guidance,
+.activity-reflection {
+	margin-bottom: 2em;
+}
+
+.iframe-wrapper {
+	width: 100%;
+	margin: 2em 0;
+	overflow: hidden;
+	background: #ffffff;
+	border: 1px solid rgba(210, 215, 217, 0.75);
+	border-radius: 0.375em;
+}
+
+.iframe-wrapper iframe {
+	display: block;
+	width: 100%;
+	height: 1050px;
+	border: 0;
+	background: #ffffff;
+}
+
+.iframe-fallback {
+	margin-bottom: 1em;
+}
+
+.external-activity-credit {
+	margin-top: 2em;
+	padding-top: 1.5em;
+	border-top: 1px solid rgba(210, 215, 217, 0.75);
+	font-size: 0.95em;
+}
+
+.external-activity-note {
+	font-size: 0.9em;
+}
+
+/* Allow more vertical room when the embedded tool stacks on small screens. */
+@media screen and (max-width: 736px) {
+	.iframe-wrapper iframe {
+		height: 1250px;
+	}
+}
+
+/* FUrther resource page styless */
+	
+
+		.resource-list {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr);
+			gap: 1.5em;
+			margin-top: 1.5em;
+		}
+
+		.resource-card {
+			margin: 0;
+		}
+
+		.resource-type {
+			display: inline-block;
+			margin: 0 0 0.75em 0;
+			font-size: 0.8em;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			line-height: 1.4;
+			text-transform: uppercase;
+		}
+
+		.resource-action {
+			margin-bottom: 0;
+		}
+
+		.new-tab-note {
+			display: block;
+			margin-top: 0.45em;
+			font-size: 0.9em;
+		}
+
+		.resource-section {
+			scroll-margin-top: 1em;
+		}
+
+		.visually-hidden {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+			border: 0;
+		}
+
+		@media screen and (max-width: 736px) {
+			.resource-card {
+				padding: 1.25em;
+			}
+		}
+	
+/* ---------------------------------------------------------
+   Interactive knowledge checks
+
+   Shared component for Session 1 and future session pages.
+
+   JavaScript state classes:
+   - .is-correct
+   - .is-incorrect
+   - .shows-correct-answer
+   --------------------------------------------------------- */
+
+.knowledge-check {
+	/* Neutral component colours */
+	--knowledge-text: #2f3437;
+	--knowledge-heading: #1f2326;
+	--knowledge-border: #70787d;
+	--knowledge-border-light: #c9ced1;
+	--knowledge-background: #ffffff;
+	--knowledge-background-soft: #f5f6f6;
+	--knowledge-background-hover: #eceeef;
+	--knowledge-focus: #1f2326;
+
+	/* Correct-answer colours */
+	--knowledge-correct-background: #edf7f1;
+	--knowledge-correct-border: #2f6b4f;
+	--knowledge-correct-text: #234f3b;
+
+	/* Incorrect-answer colours */
+	--knowledge-incorrect-background: #fff1f4;
+	--knowledge-incorrect-border: #8a2940;
+	--knowledge-incorrect-text: #6f2034;
+
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	margin-top: 2em;
+
+	color: var(--knowledge-text);
+
+	box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   Activity heading
+   --------------------------------------------------------- */
+
+.knowledge-check header.major > :last-child::after {
+	background-color: var(--knowledge-heading);
+}
+
+.knowledge-check h2,
+.knowledge-check h3 {
+	color: var(--knowledge-heading);
+}
+
+
+/* ---------------------------------------------------------
+   One question and its answers
+   --------------------------------------------------------- */
+
+.knowledge-check .knowledge-card {
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+
+	margin: 0 0 2em 0;
+	padding: 1.5em;
+
+	background-color: var(--knowledge-background);
+	border: 1px solid var(--knowledge-border-light);
+	border-radius: 0.4em;
+
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+.knowledge-check .knowledge-card h3 {
+	max-width: 100%;
+	margin: 0 0 1em 0;
+
+	color: var(--knowledge-heading);
+	line-height: 1.45;
+
+	white-space: normal;
+	overflow-wrap: break-word;
+}
+
+
+/* ---------------------------------------------------------
+   Answer-choice layout
+   --------------------------------------------------------- */
+
+.knowledge-check .knowledge-options {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 0.75em;
+
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+
+	box-sizing: border-box;
+}
+
+
+/*
+   These declarations override the HTML5 UP template's
+   fixed-height, single-line button presentation.
+*/
+
+.knowledge-check button.knowledge-option {
+	-webkit-appearance: none;
+	appearance: none;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+
+	height: auto !important;
+	min-height: 3.5em;
+
+	margin: 0;
+	padding: 0.9em 1em;
+
+	background-color: var(--knowledge-background);
+	color: var(--knowledge-text) !important;
+
+	border: 2px solid var(--knowledge-border);
+	border-radius: 0.35em;
+
+	box-shadow: none !important;
+
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: 600;
+
+	line-height: 1.45 !important;
+	letter-spacing: normal !important;
+	text-align: left;
+	text-decoration: none;
+	text-transform: none !important;
+
+	white-space: normal !important;
+	overflow: visible;
+	overflow-wrap: break-word;
+	word-break: normal;
+	text-overflow: clip;
+
+	cursor: pointer;
+
+	box-sizing: border-box;
+
+	transition:
+		background-color 0.15s ease,
+		border-color 0.15s ease,
+		color 0.15s ease;
+}
+
+
+/* ---------------------------------------------------------
+   Neutral answer states
+   --------------------------------------------------------- */
+
+.knowledge-check button.knowledge-option:hover:not(:disabled) {
+	background-color: var(--knowledge-background-hover);
+	border-color: var(--knowledge-heading);
+	color: var(--knowledge-heading) !important;
+}
+
+.knowledge-check button.knowledge-option:focus,
+.knowledge-check button.knowledge-option:focus-visible {
+	outline: 3px solid var(--knowledge-focus);
+	outline-offset: 3px;
+}
+
+/*
+   The script disables the choices once an answer is selected.
+   Keep disabled answers fully readable.
+*/
+
+.knowledge-check button.knowledge-option:disabled {
+	opacity: 1;
+	cursor: default;
+
+	-webkit-text-fill-color: currentColor;
+}
+
+
+/* ---------------------------------------------------------
+   Correct and incorrect answer states
+
+   These selectors are deliberately more specific than the
+   neutral answer rule above, so the state colours remain
+   visible after JavaScript disables the buttons.
+   --------------------------------------------------------- */
+
+.knowledge-check button.knowledge-option.is-correct,
+.knowledge-check button.knowledge-option.shows-correct-answer {
+	background-color: var(--knowledge-correct-background);
+	border-color: var(--knowledge-correct-border);
+	color: var(--knowledge-correct-text) !important;
+}
+
+.knowledge-check button.knowledge-option.is-incorrect {
+	background-color: var(--knowledge-incorrect-background);
+	border-color: var(--knowledge-incorrect-border);
+	color: var(--knowledge-incorrect-text) !important;
+}
+
+
+/* ---------------------------------------------------------
+   Feedback panel
+   --------------------------------------------------------- */
+
+.knowledge-check .knowledge-feedback {
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+
+	margin-top: 1.25em;
+	padding: 1.25em;
+
+	background-color: var(--knowledge-background-soft);
+	color: var(--knowledge-text);
+
+	border-left: 0.4em solid var(--knowledge-heading);
+	border-radius: 0.25em;
+
+	white-space: normal;
+	overflow: visible;
+	overflow-wrap: break-word;
+
+	box-sizing: border-box;
+}
+
+
+/* Make sure the HTML hidden attribute is respected */
+
+.knowledge-check .knowledge-feedback[hidden],
+.knowledge-check .feedback-correct[hidden],
+.knowledge-check .feedback-incorrect[hidden] {
+	display: none !important;
+}
+
+
+/* Correct feedback */
+
+.knowledge-check .knowledge-feedback.is-correct {
+	background-color: var(--knowledge-correct-background);
+	border-left-color: var(--knowledge-correct-border);
+	color: var(--knowledge-correct-text);
+}
+
+
+/* Incorrect feedback */
+
+.knowledge-check .knowledge-feedback.is-incorrect {
+	background-color: var(--knowledge-incorrect-background);
+	border-left-color: var(--knowledge-incorrect-border);
+	color: var(--knowledge-incorrect-text);
+}
+
+
+/* Feedback text */
+
+.knowledge-check .knowledge-feedback h4 {
+	max-width: 100%;
+	margin: 0 0 0.5em 0;
+
+	color: inherit !important;
+	line-height: 1.4;
+
+	white-space: normal;
+	overflow-wrap: break-word;
+}
+
+.knowledge-check .knowledge-feedback p {
+	max-width: 100%;
+	margin: 0 0 1em 0;
+
+	color: inherit;
+	line-height: 1.6;
+
+	white-space: normal;
+	overflow-wrap: break-word;
+}
+
+.knowledge-check .knowledge-feedback p:last-of-type {
+	margin-bottom: 1em;
+}
+
+
+/* ---------------------------------------------------------
+   Individual reset button
+   --------------------------------------------------------- */
+
+.knowledge-check button.knowledge-reset {
+	-webkit-appearance: none;
+	appearance: none;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	width: auto;
+	max-width: 100%;
+	min-width: 0;
+
+	height: auto !important;
+	min-height: 2.75em;
+
+	margin: 0;
+	padding: 0.7em 1.1em;
+
+	background-color: var(--knowledge-background);
+	color: var(--knowledge-heading) !important;
+
+	border: 2px solid var(--knowledge-heading);
+	border-radius: 0.3em;
+
+	box-shadow: none !important;
+
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: 700;
+
+	line-height: 1.35 !important;
+	letter-spacing: normal !important;
+	text-align: center;
+	text-transform: none !important;
+
+	white-space: normal !important;
+	overflow: visible;
+	overflow-wrap: break-word;
+	text-overflow: clip;
+
+	cursor: pointer;
+
+	box-sizing: border-box;
+
+	transition:
+		background-color 0.15s ease,
+		border-color 0.15s ease,
+		color 0.15s ease;
+}
+
+.knowledge-check button.knowledge-reset:hover {
+	background-color: var(--knowledge-background-hover);
+	border-color: var(--knowledge-heading);
+	color: var(--knowledge-heading) !important;
+}
+
+.knowledge-check button.knowledge-reset:focus,
+.knowledge-check button.knowledge-reset:focus-visible {
+	outline: 3px solid var(--knowledge-focus);
+	outline-offset: 3px;
+}
+
+
+/* ---------------------------------------------------------
+   Tablet and mobile adjustments
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 736px) {
+
+	.knowledge-check {
+		margin-top: 1.5em;
+	}
+
+	.knowledge-check .knowledge-card {
+		margin-bottom: 1.5em;
+		padding: 1.1em;
+	}
+
+	.knowledge-check button.knowledge-option {
+		min-height: 3.5em;
+		padding: 0.85em;
+	}
+
+	.knowledge-check .knowledge-feedback {
+		padding: 1em;
+	}
+
+	.knowledge-check button.knowledge-reset {
+		display: flex;
+		width: 100%;
+	}
+
+}
+
+
+/* ---------------------------------------------------------
+   Very narrow screens
+   --------------------------------------------------------- */
+
+@media screen and (max-width: 480px) {
+
+	.knowledge-check .knowledge-card {
+		padding: 1em;
+	}
+
+	.knowledge-check .knowledge-card h3 {
+		font-size: 1em;
+	}
+
+	.knowledge-check button.knowledge-option {
+		padding: 0.8em;
+		font-size: 0.95em;
+	}
+
+	.knowledge-check .knowledge-feedback {
+		padding: 0.9em;
+	}
+
+}
+
+
+/* ---------------------------------------------------------
+   Reduced-motion preference
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+	.knowledge-check button.knowledge-option,
+	.knowledge-check button.knowledge-reset {
+		transition: none;
+	}
+
+}
+
+/* ---------------------------------------------------------
+   Evidence sorting activity
+   Used for Session 2 and reusable on other pages
+   --------------------------------------------------------- */
+
+.evidence-sort {
+	--evidence-text: #2f3437;
+	--evidence-heading: #1f2326;
+	--evidence-border: #c9ced1;
+	--evidence-border-dark: #687077;
+	--evidence-background: #ffffff;
+	--evidence-background-soft: #f5f6f6;
+	--evidence-hover: #eceeef;
+	--evidence-correct: #2f6b4f;
+	--evidence-correct-dark: #234f3b;
+	--evidence-correct-soft: #edf7f1;
+	--evidence-incorrect: #8a2940;
+	--evidence-incorrect-dark: #6f2034;
+	--evidence-incorrect-soft: #fff1f4;
+
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+
+	color: var(--evidence-text);
+}
+
+.evidence-sort-guide {
+	margin-bottom: 2em;
+}
+
+.evidence-sort-guide dl {
+	margin-bottom: 0;
+}
+
+.evidence-sort-guide dt {
+	margin-top: 1em;
+	color: var(--evidence-heading);
+	font-weight: 700;
+}
+
+.evidence-sort-guide dt:first-child {
+	margin-top: 0;
+}
+
+.evidence-sort-guide dd {
+	margin-left: 0;
+}
+
+.evidence-progress {
+	margin: 1.5em 0;
+	font-weight: 700;
+}
+
+.evidence-bank {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1.25em;
+
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+
+	margin-bottom: 2.5em;
+}
+
+.evidence-card {
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+
+	margin: 0;
+	padding: 1.35em;
+
+	background: var(--evidence-background);
+	border: 1px solid var(--evidence-border);
+	border-radius: 0.4em;
+
+	box-sizing: border-box;
+}
+
+.evidence-card h4 {
+	margin: 0 0 0.8em 0;
+	color: var(--evidence-heading);
+	line-height: 1.45;
+	overflow-wrap: break-word;
+}
+
+.evidence-card-prompt {
+	margin-bottom: 0.75em;
+	font-weight: 600;
+}
+
+.evidence-actions {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.65em;
+
+	width: 100%;
+	min-width: 0;
+}
+
+.evidence-sort button.evidence-choice,
+.evidence-sort button.evidence-reset {
+	-webkit-appearance: none;
+	appearance: none;
+
+	height: auto !important;
+	min-height: 3.25em;
+
+	margin: 0;
+	padding: 0.8em 0.9em;
+
+	background: var(--evidence-background);
+	color: var(--evidence-text) !important;
+
+	border: 2px solid var(--evidence-border-dark);
+	border-radius: 0.35em;
+	box-shadow: none !important;
+
+	font: inherit;
+	font-weight: 700;
+	line-height: 1.4 !important;
+	letter-spacing: normal !important;
+	text-transform: none !important;
+	white-space: normal !important;
+	overflow-wrap: break-word;
+
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.evidence-sort button.evidence-choice:hover:not(:disabled),
+.evidence-sort button.evidence-reset:hover {
+	background: var(--evidence-hover);
+	border-color: var(--evidence-heading);
+	color: var(--evidence-heading) !important;
+}
+
+.evidence-sort button.evidence-choice:focus,
+.evidence-sort button.evidence-choice:focus-visible,
+.evidence-sort button.evidence-reset:focus,
+.evidence-sort button.evidence-reset:focus-visible {
+	outline: 3px solid var(--evidence-heading);
+	outline-offset: 3px;
+}
+
+.evidence-sort button.evidence-choice.is-incorrect {
+	background: var(--evidence-incorrect-soft);
+	border-color: var(--evidence-incorrect);
+	color: var(--evidence-incorrect-dark) !important;
+}
+
+.evidence-sort button.evidence-choice.is-correct {
+	background: var(--evidence-correct-soft);
+	border-color: var(--evidence-correct);
+	color: var(--evidence-correct-dark) !important;
+}
+
+.evidence-placement {
+	display: inline-block;
+	margin: 0 0 0.75em 0;
+	padding: 0.3em 0.65em;
+
+	background: var(--evidence-correct-soft);
+	color: var(--evidence-correct-dark);
+
+	border: 1px solid var(--evidence-correct);
+	border-radius: 0.25em;
+
+	font-size: 0.9em;
+	font-weight: 700;
+}
+
+.evidence-placement[hidden] {
+	display: none !important;
+}
+
+.evidence-feedback {
+	margin-top: 1em;
+	padding: 1em;
+
+	background: var(--evidence-background-soft);
+	border-left: 0.35em solid var(--evidence-heading);
+	border-radius: 0.25em;
+
+	overflow-wrap: break-word;
+}
+
+.evidence-feedback[hidden],
+.evidence-hint[hidden],
+.evidence-explanation[hidden] {
+	display: none !important;
+}
+
+.evidence-feedback.is-correct {
+	background: var(--evidence-correct-soft);
+	border-left-color: var(--evidence-correct);
+	color: var(--evidence-correct-dark);
+}
+
+.evidence-feedback.is-incorrect {
+	background: var(--evidence-incorrect-soft);
+	border-left-color: var(--evidence-incorrect);
+	color: var(--evidence-incorrect-dark);
+}
+
+.evidence-feedback p:last-child {
+	margin-bottom: 0;
+}
+
+.evidence-piles {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1em;
+
+	width: 100%;
+	min-width: 0;
+}
+
+.evidence-pile {
+	min-width: 0;
+	padding: 1.1em;
+
+	background: var(--evidence-background-soft);
+	border: 1px solid var(--evidence-border);
+	border-top: 0.35em solid var(--evidence-heading);
+	border-radius: 0.35em;
+
+	box-sizing: border-box;
+}
+
+.evidence-pile h4 {
+	margin-bottom: 0.65em;
+	color: var(--evidence-heading);
+	line-height: 1.4;
+}
+
+.evidence-pile-empty {
+	font-style: italic;
+}
+
+.evidence-pile-empty[hidden] {
+	display: none !important;
+}
+
+.evidence-pile-items {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1em;
+}
+
+.evidence-pile .evidence-card {
+	padding: 1em;
+	border-color: var(--evidence-correct);
+}
+
+.evidence-sort-footer {
+	margin-top: 1.5em;
+}
+
+.evidence-complete {
+	margin-top: 1.5em;
+}
+
+.evidence-complete[hidden] {
+	display: none !important;
+}
+
+@media screen and (max-width: 980px) {
+	.evidence-actions,
+	.evidence-piles {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}
+
+@media screen and (max-width: 736px) {
+	.evidence-card,
+	.evidence-pile {
+		padding: 1em;
+	}
+
+	.evidence-sort button.evidence-reset {
+		width: 100%;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.evidence-sort button.evidence-choice,
+	.evidence-sort button.evidence-reset {
+		transition: none !important;
+	}
+}
