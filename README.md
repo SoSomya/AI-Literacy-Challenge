@@ -4,6 +4,8 @@ This repository forms the main base for the AI Literacy Challenge Website.
 
 The website will allow participants to navigate the general structure of classes, link to resources and descriptors.
 
+Site access: https://sosomya.github.io/AI-Literacy-Challenge/index.html
+
 ## License
 ------------------------------------------------------------------------------------------------------------------
 These materials are shared under a [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
