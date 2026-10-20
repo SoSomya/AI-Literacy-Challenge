@@ -1,0 +1,67 @@
+
+/* =====================================================
+   AI Literacy Challenge
+   Collapsible Session Recaps
+   ===================================================== */
+
+/* Main recap container */
+.session-recap .recap-disclosure {
+    margin: 1.5rem 0;
+    border: 1px solid #d2d7d9;
+    border-left: 4px solid var(--session-accent, #012c56);
+    border-radius: 0.6rem;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+/* Clickable recap heading */
+.session-recap .recap-disclosure > summary {
+    display: list-item;
+    list-style-position: inside;
+    padding: 1rem 1.25rem;
+    background: var(--efi-soft-grey, #f8f8f8);
+    color: var(--efi-blue, #012c56);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Disclosure arrow */
+.session-recap .recap-disclosure > summary::marker {
+    color: var(--efi-blue, #012c56);
+}
+
+/* Mouse hover effect */
+.session-recap .recap-disclosure > summary:hover {
+    background: #eaf1f7;
+}
+
+/* Keyboard focus indicator */
+.session-recap .recap-disclosure > summary:focus-visible {
+    outline: 3px solid var(--efi-blue, #012c56);
+    outline-offset: -4px;
+}
+
+/* Divider when recap is expanded */
+.session-recap .recap-disclosure[open] > summary {
+    border-bottom: 1px solid #d2d7d9;
+}
+
+/* Expanded recap content */
+.session-recap .recap-content {
+    padding: 1.5rem;
+}
+
+.session-recap .recap-content > :last-child {
+    margin-bottom: 0;
+}
+
+/* Smaller screen adjustments */
+@media screen and (max-width: 736px) {
+    .session-recap .recap-disclosure > summary {
+        padding: 0.9rem 1rem;
+    }
+
+    .session-recap .recap-content {
+        padding: 1rem;
+    }
+}
